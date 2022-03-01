@@ -1,0 +1,6 @@
+steps:
+
+  - name: ':book: Linting'
+    command: ./ops/bin/lint
+    agents:
+      queue: cacc-prod-dflt
