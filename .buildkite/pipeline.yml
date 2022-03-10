@@ -1,6 +1,6 @@
 steps:
   - label: ":docker: Build"
-    command: ./ops/bin/build
+    command: ./ops/bin/build.sh
 
   - wait
 
@@ -11,8 +11,3 @@ steps:
 
   - label: ":rocket: Deploy"
     command: ./ops/bin/deploy.sh
-
-  - block: ":rocket: WAIT WAIT WAIT! PROD PROD PROD!"
-
-  - label: ":rocket: Deploy to PROD"
-    command: ./ops/bin/deployProd
