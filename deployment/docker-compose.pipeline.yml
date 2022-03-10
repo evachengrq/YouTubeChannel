@@ -34,8 +34,6 @@ services:
       - target: 80
         published: 3000
         mode: host
-    volumes:
-      - ../task_management_client/src:/app/src
     depends_on:
       - backend
 
