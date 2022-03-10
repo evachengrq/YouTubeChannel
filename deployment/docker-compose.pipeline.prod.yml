@@ -13,6 +13,8 @@ services:
     secrets:
       - db_username
       - db_password
+    volumes:
+      - data:/data/db
 
   backend-prod:
     image: 127.0.0.1:5000/ytc-be
@@ -42,3 +44,6 @@ secrets:
     external: true
   db_username:
     external: true
+
+volumes:
+  data:
