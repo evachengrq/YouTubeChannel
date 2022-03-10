@@ -1,6 +1,18 @@
 steps:
+  - label: ":docker: Build"
+    command: ./ops/bin/build
 
-  - name: ':book: Linting'
-    command: ./ops/bin/lint
-    agents:
-      queue: cacc-prod-dflt
+  - wait
+
+  - label: ":battery: Publish Image"
+    command: ./ops/bin/pushImage.sh
+
+  - wait
+
+  - label: ":rocket: Deploy"
+    command: ./ops/bin/deploy.sh
+
+  - block: ":rocket: WAIT WAIT WAIT! PROD PROD PROD!"
+
+  - label: ":rocket: Deploy to PROD"
+    command: ./ops/bin/deployProd

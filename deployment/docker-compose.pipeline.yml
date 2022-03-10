@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+  mymongodb:
+    image: "mongo"
+    ports:
+      - target: 27017
+        published: 27017
+        mode: host
+    environment:
+      MONGO_INITDB_ROOT_USERNAME_FILE: /run/secrets/db_username
+      MONGO_INITDB_ROOT_PASSWORD_FILE: /run/secrets/db_password
+    secrets:
+      - db_username
+      - db_password
+
+  backend:
+    image: 127.0.0.1:5000/ytc-be
+    build: ../backend
+    ports:
+      - target: 80
+        published: 8080
+        mode: host
+    depends_on:
+      - mymongodb
+    secrets:
+      - db_username
+      - db_password
+
+  frontend:
+    image: 127.0.0.1:5000/ytc-fe
+    build: ../task_management_client
+    ports:
+      - target: 80
+        published: 3000
+        mode: host
+    volumes:
+      - ../task_management_client/src:/app/src
+    depends_on:
+      - backend
+
+secrets:
+  db_password:
+    external: true
+  db_username:
+    external: true

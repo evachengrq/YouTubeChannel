@@ -1,3 +1,4 @@
+const secrets = require("docker-secret");
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -47,11 +48,11 @@ app.post("/task", async (req, res) => {
 });
 
 mongoose.connect(
-  "mongodb://host.docker.internal:27017/task-management",
+  "mongodb://mymongodb:27017/task-management",
   {
     auth: {
-      username: "anas",
-      password: "12345",
+      username: secrets.secrets.db_username,
+      password: secrets.secrets.db_password,
     },
     authSource: "admin",
     useNewUrlParser: true,
