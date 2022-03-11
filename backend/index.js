@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 var cors = require("cors");
 
-const PORT = process.env.NODE_ENV === 'production' ? 8081 : 8080;
+const PORT = process.env.NODE_ENV === 'production' ? 8080 : 8080;
 const MONGOURL = process.env.NODE_ENV === 'production' ? "mongodb://mymongodb-prod:27017/task-management" : "mongodb://mymongodb:27017/task-management";
 console.log('ENV', process.env);
 console.log(process.env.NODE_ENV);
