@@ -9,6 +9,8 @@ RUN npm install
 
 COPY . .
 
+ENV NODE_ENV=test
+
 RUN npm run build
 
 # ========= RUN =========
