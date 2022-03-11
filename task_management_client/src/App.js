@@ -3,7 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import Tasks from "./Components/Tasks";
 function App() {
   const inputText = useRef("");
-  const apiUrl = "http://localhost:8080";
+  const apiUrl = process.env.NODE_ENV === 'production' ? 'http://localhost:8081' : "http://localhost:8080";
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {

@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 var cors = require("cors");
 
-const PORT = 8080;
+const PORT = process.env.NODE_ENV === 'production' ? 8081 : 8080;
 const app = express();
 const TaskModel = require("./models/task");
 

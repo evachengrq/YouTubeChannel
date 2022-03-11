@@ -18,7 +18,9 @@ services:
 
   backend-prod:
     image: 127.0.0.1:5000/ytc-be
-    build: ../backend
+    build:
+      context: ../backend
+      dockerfile: ../backend/Dockerfile.prod
     ports:
       - target: 8080
         published: 8081
@@ -31,7 +33,9 @@ services:
 
   frontend-prod:
     image: 127.0.0.1:5000/ytc-fe
-    build: ../task_management_client
+    build:
+      context: ../task_management_client
+      dockerfile: ../task_management_client/Dockerfile.prod
     ports:
       - target: 80
         published: 3001
