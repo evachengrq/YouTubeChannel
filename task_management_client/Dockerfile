@@ -11,7 +11,7 @@ COPY . .
 
 ARG BUILD_ENV
 
-ENV NODE_ENV=${BUILD_ENV}
+ENV REACT_APP_DP_ENV=${BUILD_ENV:-test}
 
 RUN npm run build
 
