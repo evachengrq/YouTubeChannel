@@ -20,7 +20,8 @@ services:
     image: 127.0.0.1:5000/ytc-be
     build:
       context: ../backend
-      dockerfile: ../backend/Dockerfile.prod
+      args:
+        BUILD_ENV: production
     ports:
       - target: 8080
         published: 8081
