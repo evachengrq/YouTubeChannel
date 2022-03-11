@@ -8,7 +8,7 @@ RUN npm install
 
 ARG BUILD_ENV
 
-ENV NODE_ENV=${BUILD_ENV:-test}
+ENV NODE_ENV=${BUILD_ENV}
 
 COPY . .
 
