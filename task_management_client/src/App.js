@@ -4,6 +4,8 @@ import Tasks from "./Components/Tasks";
 function App() {
   const inputText = useRef("");
   const apiUrl = process.env.NODE_ENV === 'production' ? 'http://localhost:8081' : "http://localhost:8080";
+  console.log('NODE_ENV', process.env.NODE_ENV)
+  console.log('ENV', process.env)
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
