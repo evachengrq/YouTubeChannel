@@ -34,7 +34,8 @@ services:
     image: 127.0.0.1:5000/ytc-fe
     build:
       context: ../task_management_client
-      dockerfile: Dockerfile
+      args:
+        BUILD_ENV: test
     ports:
       - target: 80
         published: 3000

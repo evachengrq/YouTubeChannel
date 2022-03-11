@@ -9,7 +9,9 @@ RUN npm install
 
 COPY . .
 
-ENV NODE_ENV=test
+ARG BUILD_ENV
+
+ENV NODE_ENV=${BUILD_ENV}
 
 RUN npm run build
 
