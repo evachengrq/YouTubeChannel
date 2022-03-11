@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 var cors = require("cors");
 
 const PORT = process.env.NODE_ENV === 'production' ? 8081 : 8080;
+const MONGOURL = process.env.NODE_ENV === 'production' ? "mongodb://mymongodb:27018/task-management" : "mongodb://mymongodb:27017/task-management";
 const app = express();
 const TaskModel = require("./models/task");
 
@@ -48,7 +49,7 @@ app.post("/task", async (req, res) => {
 });
 
 mongoose.connect(
-  "mongodb://mymongodb:27017/task-management",
+    MONGOURL,
   {
     auth: {
       username: secrets.secrets.db_username,
