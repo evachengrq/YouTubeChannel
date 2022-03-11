@@ -17,7 +17,7 @@ services:
       - data:/data/db
 
   backend-prod:
-    image: 127.0.0.1:5000/ytc-be
+    image: 127.0.0.1:5000/ytc-be-prod
     build:
       context: ../backend
       args:
@@ -33,7 +33,7 @@ services:
       - db_password
 
   frontend-prod:
-    image: 127.0.0.1:5000/ytc-fe
+    image: 127.0.0.1:5000/ytc-fe-prod
     build:
       context: ../task_management_client
       dockerfile: ../task_management_client/Dockerfile.prod
