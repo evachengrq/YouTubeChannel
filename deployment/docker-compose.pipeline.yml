@@ -18,8 +18,8 @@ services:
     image: 127.0.0.1:5000/ytc-be
     build:
       context: ../backend
-      args:
-        BUILD_ENV: test
+      dockerfile:
+        Dockerfile
     ports:
       - target: 8080
         published: 8080
