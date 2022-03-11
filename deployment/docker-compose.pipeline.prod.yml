@@ -36,7 +36,7 @@ services:
     image: 127.0.0.1:5000/ytc-fe-prod
     build:
       context: ../task_management_client
-      dockerfile: ../task_management_client/Dockerfile.prod
+      dockerfile: Dockerfile.prod
     ports:
       - target: 80
         published: 3001
